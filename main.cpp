@@ -1,0 +1,20 @@
+#define CROW_MAIN
+//#define CROW_STATIC_DIRECTORY "static/"
+//#define CROW_STATIC_ENDPOINT "/tmp/static"
+//#define CROW_DISABLE_STATIC_DIR
+#include <iostream>
+#include "crow.h"
+//g++ main.cpp -o main -lboost_system -lboost_filesystem -lpthread
+int main()
+{
+    crow::SimpleApp app;
+
+    CROW_ROUTE(app, "/")([](){
+        return "Hello world are you ok ";
+    });
+
+
+    app.port(18080).multithreaded().run();
+}
+
+
